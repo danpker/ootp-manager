@@ -28,6 +28,7 @@ NAMESPACE = uuid.UUID("7c375757-43f2-47e3-8e07-cab7d7726c37")
 
 
 def create_hash(row):
+    """Return a unique hash for a player based on their CSV row."""
     return str(
         uuid.uuid5(
             NAMESPACE,
@@ -37,6 +38,7 @@ def create_hash(row):
 
 
 def main(args):
+    """Create new players, and create a new snapshot."""
     logger.info("Getting existing players.")
     existing_players = Player.query.all()
     existing_hashes = [
@@ -85,7 +87,7 @@ def main(args):
             },
             **{
                 db_field: row[ootp_field]
-                for  ootp_field, db_field in RATINGS_FIELDS.items()
+                for ootp_field, db_field in RATINGS_FIELDS.items()
             },
         )
         for _, row in players.iterrows()
@@ -93,6 +95,7 @@ def main(args):
     db.session.add_all(ratings)
 
     db.session.commit()
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

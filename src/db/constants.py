@@ -1,3 +1,5 @@
+"""List of constans for DB <=> CSV mapping."""
+
 INFO_FIELDS = {
     "LG": "level",
     "POS": "position",

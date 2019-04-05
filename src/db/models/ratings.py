@@ -1,12 +1,18 @@
+"""Model for Player ratings."""
 from base import db
 
 
 class Ratings(db.Model):
+    """Class for Player ratings."""
+
     snapshot_id = db.Column(
-        db.Integer, db.ForeignKey("snapshot.id"), nullable=False, primary_key=True)
+        db.Integer, db.ForeignKey("snapshot.id"), nullable=False,
+        primary_key=True)
     snapshot = db.relationship("Snapshot")
+
     player_id = db.Column(
-        db.Integer, db.ForeignKey("player.id"), nullable=False, primary_key=True)
+        db.Integer, db.ForeignKey("player.id"), nullable=False,
+        primary_key=True)
     player = db.relationship("Player")
 
     position = db.Column(db.String(5), nullable=False)
