@@ -19,3 +19,6 @@ with open(config_file) as f:
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = config["db_url"]
 db = SQLAlchemy(app)
+
+# import views
+from views import * # noqa

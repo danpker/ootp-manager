@@ -79,7 +79,7 @@ def main(args):
 
     ratings = [
         Ratings(
-            snap_shot=snapshot,
+            snapshot=snapshot,
             player=hash_to_player[row["hash"]],
             **{
                 db_field: row[ootp_field]
