@@ -10,4 +10,5 @@ from db.models import Player
 def index():
     """Return a list of players."""
     players = Player.query.all()
-    return render_template("index.html", players=players)
+    return render_template(
+        "index.html", players=players, title="List of players")
