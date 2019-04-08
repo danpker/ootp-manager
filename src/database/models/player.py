@@ -15,6 +15,7 @@ class Player(db.Model):
 
     @property
     def ratings(self):
+        """Return the latest ratings for a Player."""
         latest_snapshot = Snapshot.latest_snapshot()
         return (
             db.session.query(Ratings)

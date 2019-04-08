@@ -45,6 +45,7 @@ class Ratings(db.Model):
 
     @property
     def batting_median(self):
+        """Return the median of batting ratings."""
         return statistics.median([
             self.contact,
             self.gap_power,
@@ -55,14 +56,17 @@ class Ratings(db.Model):
 
     @property
     def batting_potential_diff(self):
+        """Return the difference between current and potential batting."""
         return self.batting_potential_median - self.batting_median
 
     @property
     def pitching_potential_diff(self):
+        """Return the difference between current and potential pitching."""
         return self.pitching_potential_median - self.pitching_median
 
     @property
     def pitching_median(self):
+        """Return the median of pitching ratings."""
         return statistics.median([
             self.stuff,
             self.movement,
@@ -71,6 +75,7 @@ class Ratings(db.Model):
 
     @property
     def batting_potential_median(self):
+        """Return the median of potential batting ratings."""
         return statistics.median([
             self.contact_potential,
             self.gap_power_potential,
@@ -81,6 +86,7 @@ class Ratings(db.Model):
 
     @property
     def pitching_potential_median(self):
+        """Return the median of potential pitching ratings."""
         return statistics.median([
             self.stuff_potential,
             self.movement_potential,
