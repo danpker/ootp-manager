@@ -1,12 +1,16 @@
 """List view for players."""
-from flask import render_template
+from flask import (
+    Blueprint,
+    render_template,
+)
 
-from base import app
 from db.models import Player
 
 
-@app.route("/")
-@app.route("/index")
+players_list = Blueprint("players_list", __name__)
+
+
+@players_list.route("/")
 def index():
     """Return a list of players."""
     players = Player.query.all()

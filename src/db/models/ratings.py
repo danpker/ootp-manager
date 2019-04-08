@@ -1,5 +1,5 @@
 """Model for Player ratings."""
-from base import db
+from db import db
 
 
 class Ratings(db.Model):

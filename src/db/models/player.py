@@ -1,5 +1,5 @@
 """Player model for players."""
-from base import db
+from db import db
 
 
 class Player(db.Model):

@@ -4,8 +4,10 @@ import os
 from flask import (
     Flask,
 )
-from flask_sqlalchemy import SQLAlchemy
 from yaml import safe_load
+
+from db import db
+from views.list import players_list
 
 config_file = os.environ.get("CONFIG")
 
@@ -18,7 +20,5 @@ with open(config_file) as f:
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = config["db_url"]
-db = SQLAlchemy(app)
-
-# import views
-from views import * # noqa
+app.register_blueprint(players_list)
+db.init_app(app)

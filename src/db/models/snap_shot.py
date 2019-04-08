@@ -1,5 +1,5 @@
 """Model for Ratings snapshots."""
-from base import db
+from db import db
 
 
 class Snapshot(db.Model):
@@ -7,3 +7,8 @@ class Snapshot(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date, unique=True, nullable=False)
+
+    @staticmethod
+    def latest_snapshot():
+        """Return the latest snapshot."""
+        db.session.query(Snapshot).order_by(Snapshot.date).first()
