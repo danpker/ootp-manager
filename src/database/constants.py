@@ -7,11 +7,26 @@ INFO_FIELDS = {
 }
 
 RATINGS_FIELDS = {
+    # batting
     "CON": "contact",
     "GAP": "gap_power",
     "POW": "power",
     "EYE": "eye",
     "K's": "k",
+    # batting pot
+    "CON P": "contact_potential",
+    "GAP P": "gap_power_potential",
+    "POW P": "power_potential",
+    "EYE P": "eye_potential",
+    "K P": "k_potential",
+    # pitching
+    "STU": "stuff",
+    "MOV": "movement",
+    "CON.1": "control",
+    # pitching pot
+    "STU P": "stuff_potential",
+    "MOV P": "movement_potential",
+    "CON P.1": "control_potential",
 }
 
 LEVEL_MAPPING = {
