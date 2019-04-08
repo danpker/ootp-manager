@@ -6,7 +6,7 @@ from flask import (
 )
 from yaml import safe_load
 
-from db import db
+from database import db
 from views.list import players_list
 
 config_file = os.environ.get("CONFIG")

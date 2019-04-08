@@ -1,5 +1,5 @@
 """Model for Player ratings."""
-from db import db
+from database import db
 
 
 class Ratings(db.Model):
@@ -15,8 +15,9 @@ class Ratings(db.Model):
         primary_key=True)
     player = db.relationship("Player")
 
+    age = db.Column(db.Integer, nullable=False)
     position = db.Column(db.String(5), nullable=False)
-    level = db.Column(db.String(5), nullable=False)
+    level = db.Column(db.Integer, nullable=False)
 
     # attribute ratings
     contact = db.Column(db.Integer, nullable=False)

@@ -9,12 +9,14 @@ import logging
 
 import pandas
 
-from base import db
-from db.constants import (
+from base import app
+from database import db
+from database.constants import (
     INFO_FIELDS,
     RATINGS_FIELDS,
+    LEVEL_MAPPING,
 )
-from db.models import (
+from database.models import (
     Player,
     Snapshot,
     Ratings,
@@ -81,6 +83,7 @@ def main(args):
         Ratings(
             snapshot=snapshot,
             player=hash_to_player[row["hash"]],
+            level=LEVEL_MAPPING[row["Lev.1"]],
             **{
                 db_field: row[ootp_field]
                 for ootp_field, db_field in INFO_FIELDS.items()
@@ -109,4 +112,6 @@ if __name__ == "__main__":
         help=("Date of the export, in YYYY-MM-DD format.")
     )
     args = parser.parse_args(sys.argv[1:])
-    main(args)
+
+    with app.app_context():
+        main(args)

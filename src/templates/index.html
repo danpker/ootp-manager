@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<table class="table table-sm table-striped">
+<table data-toggle="table" class="table table-sm table-striped">
     <thead>
         <tr>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">DOB</th>
+            <th data-sortable="true">First</th>
+            <th data-sortable="true">Last</th>
+            <th data-sortable="true">Age</th>
+            <th data-sortable="true">Position</th>
+            <th data-sortable="true">Level</th>
         </tr>
     </thead>
     <tbody>
@@ -13,7 +15,9 @@
         <tr>
             <td>{{ player.first_name }}</td>
             <td>{{ player.last_name }}</td>
-            <td>{{ player.date_of_birth }}</td>
+            <td>{{ player.ratings.age }}</td>
+            <td>{{ player.ratings.position }}</td>
+            <td>{{ player.ratings.level }}</td>
         </tr>
         {% endfor %}
     </tbody>

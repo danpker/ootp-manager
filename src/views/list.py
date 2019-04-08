@@ -4,7 +4,7 @@ from flask import (
     render_template,
 )
 
-from db.models import Player
+from database.models import Player
 
 
 players_list = Blueprint("players_list", __name__)
