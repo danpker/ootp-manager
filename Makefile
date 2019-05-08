@@ -1,9 +1,9 @@
 FLASK_APP := src/base.py
 PYTHONPATH := src
-CONFIG := config.yaml
+DATA_DIR := data/
 
 run:
-	CONFIG=$(CONFIG) PYTHONPATH=$(PYTHONPATH) FLASK_APP=$(FLASK_APP) flask run
+	DATA_DIR=$(DATA_DIR) PYTHONPATH=$(PYTHONPATH) FLASK_APP=$(FLASK_APP) flask run
 
 lint:
 	flake8 src/ scripts/
